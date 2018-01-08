@@ -1,0 +1,130 @@
+*, ::before, ::after {
+  box-sizing: border-box;
+  transition: all .3s ease-in-out;
+}
+
+::-moz-selection {
+  background-color: white;
+  color: black;
+}
+::selection {
+  background-color: white;
+  color: black;
+}
+
+html, body {
+  background-color: #18191C;
+  color: #FFF;
+  font-family: sans-serif;
+  font-weight: 400;
+  height: 100vh;
+  margin: 0;
+  overflow-x: hidden;
+  width: 100vw;
+}
+
+#main {
+  padding: 20px;
+}
+
+main {
+  margin: 0 auto;
+  max-width: 1000px;
+}
+main h1,
+main p {
+  text-align: center;
+}
+main p {
+  opacity: .7;
+}
+
+.input-field {
+  background-color: #23272A;
+  border-left: 5px solid #2C2F33;
+  padding: 10px;
+}
+.input-field:hover {
+  border-left: 5px solid #7289DA;
+}
+.input-field:first-child {
+  border-top-left-radius: 5px;
+}
+.input-field:last-child {
+  border-bottom-left-radius: 5px;
+}
+
+.input-field label {
+  display: block;
+  margin-bottom: 5px;
+  color: rgba(255, 255, 255, .5);
+}
+
+.input-field input[type='text'],
+.input-field input[type='url'],
+.input-field textarea {
+  display: block;
+  border: 0;
+  border-left: 2px solid transparent;
+  background-color: rgba(0, 0, 0, .1);
+  resize:vertical;
+  color: #F5F5F5;
+  padding: 5px 0;
+  width: 100%;
+}
+
+.input-field input[type='text']:invalid,
+.input-field input[type='url']:invalid,
+.input-field textarea:invalid {
+  background-color: rgba(255, 0, 0, .4)
+}
+
+#controls {
+  margin: 20px 0;
+}
+#controls button {
+  padding: 10px 15px;
+  border: none;
+  border-radius: 3px;
+  background-color: #FFF;
+  box-shadow: 0 1px 5px rgba(0, 0, 0, .5);
+  color: #000;
+  cursor: pointer;
+}
+#controls button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 3px 5px rgba(0, 0, 0, .5);
+}
+#controls button:disabled {
+  background-color: #99AAB5;
+  color: #555;
+  cursor: not-allowed;
+}
+#controls button:disabled:hover {
+  transform: none;
+}
+#controls button.primary {
+  background-color: #7289DA;
+  color: #FFF;
+}
+
+#output textarea {
+  color: rgba(0, 255, 0, .5);
+  font-family: monospace;
+}
+
+
+footer {
+  margin-top: 50px;
+  text-align: center;
+}
+footer .copyright {
+  opacity: .5;
+}
+footer a {
+  text-decoration: none;
+  color: inherit;
+}
+footer a:hover {
+  color: #7289DA;
+}

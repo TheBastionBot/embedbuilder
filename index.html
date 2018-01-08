@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Discord Message Embed Builder</title>
+  <meta charset="utf-8">
+  <meta name="robots" content="noodp">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="description" content="Create JSON objects for Discord message embeds graphically, and use it with various bots/applications based on Discord API.">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="assets/stylesheets/main.css" />
+  <link rel="stylesheet" href="assets/stylesheets/colorpicker.css" />
+</head>
+<body>
+  <div id="main">
+    <main>
+      <h1>Embed Builder</h1>
+      <p>Create JSON objects for Discord message embeds graphically, and use it with various bots/applications based on Discord API.</p>
+
+      <form id="embed-builder" method="post">
+        <!-- Color -->
+        <div class="input-field">
+          <label for="color">Color</label>
+          <input id="color" type="text" name="color" readonly />
+        </div>
+        <!-- Title -->
+        <div class="input-field">
+          <label for="title">Title</label>
+          <input type="text" name="title" maxlength="256" />
+        </div>
+        <!-- URL -->
+        <div class="input-field">
+          <label for="url">URL</label>
+          <input type="url" name="url" />
+        </div>
+        <!-- Description -->
+        <div class="input-field">
+          <label for="description">Description</label>
+          <textarea name="description" maxlength="2000" rows="2"></textarea>
+        </div>
+        <!-- Thumbnail -->
+        <div class="input-field">
+          <label for="thumbnail">Thumbnail</label>
+          <input type="url" name="thumbnail" />
+        </div>
+        <!-- Image -->
+        <div class="input-field">
+          <label for="image">Image</label>
+          <input type="url" name="image" />
+        </div>
+        <!-- Video -->
+        <div class="input-field">
+          <label for="video">Video</label>
+          <input type="url" name="video" />
+        </div>
+
+        <!-- JSON Output -->
+        <div id="output" class="input-field">
+          <div id="controls">
+            <button class="primary" type="button" onClick="generateJSON()">Generate JSON</button>
+            <button type="button" onClick="copyJSON(this)">Copy JSON</button>
+          </div>
+          <label for="json-output">JSON Output</label>
+          <textarea id="json-output" rows="10" readonly>{}</textarea>
+        </div>
+      </form>
+    </main>
+
+    <footer>
+      <div class="copyright">
+        Copyright &copy; 2018 - <a href="https://bastionbot.org" target="_blank">The Bastion Bot Project</a>
+      </div>
+    </footer>
+  </div>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
+  <script src="/assets/scripts/colorpicker.js"></script>
+  <script src="/assets/scripts/main.js"></script>
+</body>
+</html>
