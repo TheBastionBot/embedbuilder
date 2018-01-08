@@ -20,49 +20,65 @@
 
       <form id="embed-builder" method="post">
         <!-- Color -->
-        <div class="input-field">
-          <label for="color">Color</label>
-          <input id="color" type="text" name="color" readonly />
+        <div class="input-group">
+          <div class="input-field">
+            <label for="color">Color</label>
+            <input id="color" type="text" name="color" readonly />
+          </div>
         </div>
         <!-- Title -->
-        <div class="input-field">
-          <label for="title">Title</label>
-          <input type="text" name="title" maxlength="256" />
+        <div class="input-group">
+          <div class="input-field">
+            <label for="title">Title</label>
+            <input type="text" name="title" maxlength="256" />
+          </div>
         </div>
         <!-- URL -->
-        <div class="input-field">
-          <label for="url">URL</label>
-          <input type="url" name="url" />
+        <div class="input-group">
+          <div class="input-field">
+            <label for="url">URL</label>
+            <input type="url" name="url" />
+          </div>
         </div>
         <!-- Description -->
-        <div class="input-field">
-          <label for="description">Description</label>
-          <textarea name="description" maxlength="2000" rows="2"></textarea>
+        <div class="input-group">
+          <div class="input-field">
+            <label for="description">Description</label>
+            <textarea name="description" maxlength="2000" rows="2"></textarea>
+          </div>
         </div>
         <!-- Thumbnail -->
-        <div class="input-field">
-          <label for="thumbnail">Thumbnail</label>
-          <input type="url" name="thumbnail" />
+        <div class="input-group">
+          <div class="input-field">
+            <label for="thumbnail">Thumbnail</label>
+            <input type="url" name="thumbnail" />
+          </div>
         </div>
         <!-- Image -->
-        <div class="input-field">
-          <label for="image">Image</label>
-          <input type="url" name="image" />
+        <div class="input-group">
+          <div class="input-field">
+            <label for="image">Image</label>
+            <input type="url" name="image" />
+          </div>
         </div>
         <!-- Video -->
-        <div class="input-field">
-          <label for="video">Video</label>
-          <input type="url" name="video" />
+        <div class="input-group">
+          <div class="input-field">
+            <label for="video">Video</label>
+            <input type="url" name="video" />
+          </div>
         </div>
 
         <!-- JSON Output -->
-        <div id="output" class="input-field">
+        <div id="output" class="input-group">
           <div id="controls">
             <button class="primary" type="button" onClick="generateJSON()">Generate JSON</button>
             <button type="button" onClick="copyJSON(this)">Copy JSON</button>
           </div>
-          <label for="json-output">JSON Output</label>
-          <textarea id="json-output" rows="10" readonly>{}</textarea>
+          <div class="input-field">
+            <label for="json-output">JSON Output</label>
+            <textarea id="json-output" rows="10" readonly>{}</textarea>
+          </div>
         </div>
       </form>
     </main>

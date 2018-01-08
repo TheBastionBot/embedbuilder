@@ -39,30 +39,30 @@ main p {
   opacity: .7;
 }
 
-.input-field {
+.input-group {
   background-color: #23272A;
   border-left: 5px solid #2C2F33;
   padding: 10px;
 }
-.input-field:hover {
+.input-group:hover {
   border-left: 5px solid #7289DA;
 }
-.input-field:first-child {
+.input-group:first-child {
   border-top-left-radius: 5px;
 }
-.input-field:last-child {
+.input-group:last-child {
   border-bottom-left-radius: 5px;
 }
 
-.input-field label {
+.input-group label {
   display: block;
   margin-bottom: 5px;
   color: rgba(255, 255, 255, .5);
 }
 
-.input-field input[type='text'],
-.input-field input[type='url'],
-.input-field textarea {
+.input-group input[type='text'],
+.input-group input[type='url'],
+.input-group textarea {
   display: block;
   border: 0;
   border-left: 2px solid transparent;
@@ -73,9 +73,9 @@ main p {
   width: 100%;
 }
 
-.input-field input[type='text']:invalid,
-.input-field input[type='url']:invalid,
-.input-field textarea:invalid {
+.input-group input[type='text']:invalid,
+.input-group input[type='url']:invalid,
+.input-group textarea:invalid {
   background-color: rgba(255, 0, 0, .4)
 }
 
