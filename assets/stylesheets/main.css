@@ -54,6 +54,34 @@ main p {
   border-bottom-left-radius: 5px;
 }
 
+.input-group-toggle span {
+  line-height: 2;
+}
+
+.input-group input[type='checkbox'] {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -o-appearance: none;
+  appearance: none;
+	background-color: #2C2F33;
+	border: 1px solid #2C2F33;
+	padding: 10px;
+	border-radius: 3px;
+  vertical-align: top;
+  position: relative;
+}
+.input-group input[type='checkbox']:checked {
+  background-color: #7289DA;
+  border: 1px solid #7289DA;
+}
+.input-group input[type='checkbox']:checked:after {
+	content: '\2714';
+  position: absolute;
+	top: 0px;
+	left: 5px;
+	color: #FFF;
+}
+
 .input-group label {
   display: block;
   margin-bottom: 5px;
