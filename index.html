@@ -68,6 +68,21 @@
             <input type="url" name="video" />
           </div>
         </div>
+        <!-- Footer -->
+        <div class="input-group">
+          <div class="input-group-toggle">
+            <label>
+              <input type="checkbox" name="footer" value="true" onClick="toggleGroup(this)" />
+              <span>Footer</span>
+            </label>
+          </div>
+          <div id="group:footer" class="input-field" hidden>
+            <label for="footer:text">Text</label>
+            <input type="text" name="footer:text" />
+            <label for="footer:icon_url">Icon</label>
+            <input type="url" name="footer:icon_url" />
+          </div>
+        </div>
 
         <!-- JSON Output -->
         <div id="output" class="input-group">
