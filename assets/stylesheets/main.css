@@ -63,7 +63,7 @@ main p {
   -moz-appearance: none;
   -o-appearance: none;
   appearance: none;
-	background-color: #2C2F33;
+	background-color: rgba(0, 0, 0, .1);
 	border: 1px solid #2C2F33;
 	padding: 10px;
 	border-radius: 3px;
@@ -84,13 +84,13 @@ main p {
 
 .input-group label {
   display: block;
-  margin-bottom: 5px;
   color: rgba(255, 255, 255, .5);
 }
 
 .input-group input[type='text'],
 .input-group input[type='url'],
 .input-group textarea {
+  margin: 5px 0;
   display: block;
   border: 0;
   border-left: 2px solid transparent;
