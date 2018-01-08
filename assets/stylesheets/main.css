@@ -54,10 +54,6 @@ main p {
   border-bottom-left-radius: 5px;
 }
 
-.input-group-toggle span {
-  line-height: 2;
-}
-
 .input-group input[type='checkbox'] {
   -webkit-appearance: none;
   -moz-appearance: none;
@@ -85,6 +81,10 @@ main p {
 .input-group label {
   display: block;
   color: rgba(255, 255, 255, .5);
+}
+
+.input-group label span {
+  line-height: 2;
 }
 
 .input-group input[type='text'],
