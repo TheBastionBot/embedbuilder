@@ -89,3 +89,16 @@ $('#color').ColorPicker({
    $('#json-output').select();
    document.execCommand('copy');
  }
+
+
+/**
+ * Toggle Input Groups
+ */
+function toggleGroup(group) {
+  if (group.checked) {
+    document.getElementById(`group:${group.name}`).removeAttribute('hidden');
+  }
+  else {
+    document.getElementById(`group:${group.name}`).setAttribute('hidden', true);
+  }
+}
