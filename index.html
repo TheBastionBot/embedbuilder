@@ -26,6 +26,23 @@
             <input id="color" type="text" name="color" readonly />
           </div>
         </div>
+        <!-- Author -->
+        <div class="input-group">
+          <div class="input-group-toggle">
+            <label>
+              <input type="checkbox" name="author" value="true" onClick="toggleGroup(this)" />
+              <span>Author</span>
+            </label>
+          </div>
+          <div id="group:author" class="input-field" hidden>
+            <label for="author:name">Name</label>
+            <input type="text" name="author:name" />
+            <label for="author:url">URL</label>
+            <input type="url" name="author:url" />
+            <label for="author:icon_url">Icon</label>
+            <input type="url" name="author:icon_url" />
+          </div>
+        </div>
         <!-- Title -->
         <div class="input-group">
           <div class="input-field">

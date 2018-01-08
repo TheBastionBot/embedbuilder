@@ -5,16 +5,7 @@ function generateJSON() {
   let form = document.getElementById('embed-builder');
 
   // let embedObject = {
-  //   author: {
-  //     name: '',
-  //     url: '',
-  //     icon_url: ''
-  //   },
   //   fields: [],
-  //   footer: {
-  //     text: '',
-  //     icon_url: ''
-  //   }
   //   timestamp: new Date()
   // };
 
@@ -24,6 +15,24 @@ function generateJSON() {
   let color = form.elements['color'].value;
   if (color) {
     embedObject.color = parseInt(color);
+  }
+  // Author
+  let author_name = form.elements['author:name'].value;
+  if (author_name) {
+    if (!embedObject.hasOwnProperty('author')) {
+      embedObject.author = {}
+    }
+    embedObject.author.name = author_name;
+
+    let author_url = form.elements['author:url'].value;
+    if (author_url) {
+      embedObject.author.url = author_url;
+    }
+
+    let author_icon_url = form.elements['author:icon_url'].value;
+    if (author_icon_url) {
+      embedObject.author.icon_url = author_icon_url;
+    }
   }
   // Title
   let title = form.elements['title'].value;
