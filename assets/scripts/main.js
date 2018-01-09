@@ -49,6 +49,27 @@ function generateJSON() {
   if (description) {
     embedObject.description = description;
   }
+  // Fields
+  let fields = document.getElementById('fields').children;
+  if (fields.length) {
+    if (!embedObject.hasOwnProperty('fields')) {
+      embedObject.fields = [];
+    }
+
+    for (let i = 0; i < fields.length; i++) {
+      let field_name = form.elements[`field-${i}:name`].value;
+      let field_value = form.elements[`field-${i}:value`].value;
+      let field_inline = form.elements[`field-${i}:inline`].checked;
+
+      if (field_name && field_value) {
+        embedObject.fields.push({
+          name: field_name,
+          value: field_value,
+          inline: field_inline
+        });
+      }
+    }
+  }
   // Thumbnail
   let thumbnail = form.elements['thumbnail'].value;
   if (thumbnail) {
@@ -123,4 +144,60 @@ function toggleGroup(group) {
   else {
     document.getElementById(`group:${group.name}`).setAttribute('hidden', true);
   }
+}
+
+/**
+ * Add Field
+ */
+function addField(button) {
+  let fields = document.getElementById('fields');
+  let index = fields.children.length;
+
+
+  if (index >= 24) {
+    button.setAttribute('disabled', true);
+  }
+  else {
+    button.removeAttribute('disabled');
+  }
+
+  fields.insertAdjacentHTML('beforeend',
+    `<div id="field-${index}" class="field-container">
+       <div class="field">
+         <label for="field-${index}:name">Field ${index + 1} Name</label>
+         <input type="text" name="field-${index}:name" maxlength="256" />
+         <label for="field-${index}:value">Field ${index +1} Description</label>
+         <textarea name="field-${index}:value" maxlength="2000" rows="2"></textarea>
+       </div>
+       <div class="controls">
+         <label style="display:inline-block;">
+           <input type="checkbox" name="field-${index}:inline" />
+           <span>Inline</span>
+         </label>
+       </div>
+     </div>`);
+
+  let removeBtn = document.getElementById('btn-removeField');
+  removeBtn.removeAttribute('disabled');
+}
+
+/**
+ * Remove Field
+ */
+function removeField(button) {
+  let fields = document.getElementById('fields');
+  let index = fields.children.length;
+
+  if (index - 1) {
+    button.removeAttribute('disabled');
+  }
+  else {
+    button.setAttribute('disabled', true);
+  }
+
+  let field = document.getElementById(`field-${index - 1}`);
+  field.parentNode.removeChild(field);
+
+  let addBtn = document.getElementById('btn-addField');
+  addBtn.removeAttribute('disabled');
 }
