@@ -110,7 +110,7 @@ main p {
 #controls {
   margin: 20px 0;
 }
-#controls button {
+button {
   padding: 10px 15px;
   border: none;
   border-radius: 3px;
@@ -119,19 +119,19 @@ main p {
   color: #000;
   cursor: pointer;
 }
-#controls button:hover {
+button:hover {
   transform: translateY(-2px);
   box-shadow: 0 3px 5px rgba(0, 0, 0, .5);
 }
-#controls button:disabled {
+button:disabled {
   background-color: #99AAB5;
   color: #555;
   cursor: not-allowed;
 }
-#controls button:disabled:hover {
+button:disabled:hover {
   transform: none;
 }
-#controls button.primary {
+button.primary {
   background-color: #7289DA;
   color: #FFF;
 }
