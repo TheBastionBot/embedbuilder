@@ -15,8 +15,7 @@
 html, body {
   background-color: #18191C;
   color: #FFF;
-  font-family: sans-serif;
-  font-weight: 400;
+  font-family: 'Roboto', sans-serif;
   height: 100vh;
   margin: 0;
   overflow-x: hidden;
@@ -138,7 +137,8 @@ button.primary {
 
 #output textarea {
   color: rgba(0, 255, 0, .5);
-  font-family: monospace;
+  font-family: 'Roboto Mono', sans-serif;
+  font-size: 12px;
 }
 
 
