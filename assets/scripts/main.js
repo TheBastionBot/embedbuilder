@@ -160,10 +160,8 @@ function addField(button) {
   fields.insertAdjacentHTML('beforeend',
     `<div id="field-${index}" class="field-container">
        <div class="field">
-         <label for="field-${index}:name">Field ${index + 1} Name</label>
-         <input type="text" name="field-${index}:name" maxlength="256" />
-         <label for="field-${index}:value">Field ${index +1} Description</label>
-         <textarea name="field-${index}:value" maxlength="1024" rows="2"></textarea>
+         <input type="text" name="field-${index}:name" maxlength="256" placeholder="Field ${index + 1} Name" />
+         <textarea name="field-${index}:value" maxlength="1024" rows="2" placeholder="Field ${index +1} Description"></textarea>
        </div>
        <div class="controls">
          <label style="display:inline-block;">
