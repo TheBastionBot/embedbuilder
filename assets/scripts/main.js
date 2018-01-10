@@ -4,11 +4,6 @@
 function generateJSON() {
   let form = document.getElementById('embed-builder');
 
-  // let embedObject = {
-  //   fields: [],
-  //   timestamp: new Date()
-  // };
-
   let embedObject = {};
 
   // Color
@@ -107,6 +102,7 @@ function generateJSON() {
       embedObject.footer.icon_url = footer_icon_url;
     }
   }
+  // TODO: Timestamp
 
   document.getElementById('json-output').innerHTML = JSON.stringify(embedObject, null, '  ');
 }
