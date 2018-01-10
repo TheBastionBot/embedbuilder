@@ -167,7 +167,7 @@ function addField(button) {
          <label for="field-${index}:name">Field ${index + 1} Name</label>
          <input type="text" name="field-${index}:name" maxlength="256" />
          <label for="field-${index}:value">Field ${index +1} Description</label>
-         <textarea name="field-${index}:value" maxlength="2000" rows="2"></textarea>
+         <textarea name="field-${index}:value" maxlength="1024" rows="2"></textarea>
        </div>
        <div class="controls">
          <label style="display:inline-block;">
