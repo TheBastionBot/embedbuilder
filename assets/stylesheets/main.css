@@ -46,3 +46,22 @@ header div {
   padding: 17px;
   filter: brightness(150%);
 }
+
+/**
+ * Main
+ */
+main {
+  width: 100%;
+  margin: 0 auto;
+}
+main div.cell {
+  display: inline-block;
+  width: 100%;
+  float: left;
+  padding: 20px;
+}
+@media (min-width: 1024px) {
+  main div.cell {
+    width: 50%;
+  }
+}
