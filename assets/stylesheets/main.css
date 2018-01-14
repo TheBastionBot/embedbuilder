@@ -22,6 +22,15 @@ html, body {
   width: 100vw;
 }
 
+button {
+  cursor: pointer;
+  font-family: 'Roboto', sans-serif;
+}
+
+code {
+  font-family: 'Roboto Mono', monospace;
+}
+
 /**
  * Header
  */
@@ -64,4 +73,55 @@ main div.cell {
   main div.cell {
     width: 50%;
   }
+}
+/* Builder */
+#builder-container {
+  min-height: calc(100vh - 90px);
+  border-radius: 3px;
+  border-left: 5px solid #111111;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, .3);
+  background-color: #23272A;
+}
+/* Output */
+#output-container .controller {
+  display: flex;
+  margin-bottom: 20px;
+  text-align: center;
+}
+#output-container .controller button {
+  width: 50%;
+  padding: 15px 0;
+  border: none;
+  border-radius: 3px;
+  background-color: #23272A;
+  color: #EEEEEE;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, .3);
+}
+#output-container .controller button:hover {
+  transform: translateY(-5px);
+  filter: brightness(110%);
+  box-shadow: 0 12px 15px rgba(0, 0, 0, .3);
+}
+#output-container .controller button:first-child {
+  margin-right: 10px;
+}
+#output-container .controller button:last-child {
+  margin-left: 10px;
+}
+#output-container .output {
+  min-height: calc(100vh - 160px);
+  background-color: black;
+  border-radius: 3px;
+  padding: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, .3);
+}
+#json-output {
+  display: block;
+  min-height: calc(100vh - 185px) !important;
+  width: 100%;
+  background: none;
+  border: none;
+  font-family: 'Roboto Mono', monospace;
+  color: #AAA;
+  resize: vertical;
 }

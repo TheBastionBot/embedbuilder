@@ -22,8 +22,20 @@
   </header>
 
   <main>
-    <div class="cell"></div>
-    <div class="cell"></div>
+    <div class="cell">
+      <div id="builder-container"></div>
+    </div>
+    <div class="cell">
+      <div id="output-container">
+        <div class="controller">
+          <button onclick="generateJSON()">Generate JSON</button>
+          <button onclick="copyJSON()">🔗 Copy JSON</button>
+        </div>
+        <div class="output">
+          <textarea id="json-output" readonly>{}</textarea>
+        </div>
+      </div>
+    </div>
   </main>
 
   <!-- Scripts -->
