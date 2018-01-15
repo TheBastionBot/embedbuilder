@@ -60,14 +60,15 @@ header div {
  * Main
  */
 main {
+  display: flex;
+  flex-wrap: wrap;
   width: 100%;
   margin: 0 auto;
 }
 main div.cell {
-  display: inline-block;
   width: 100%;
-  float: left;
   padding: 20px;
+  flex-direction: column;
 }
 @media (min-width: 1024px) {
   main div.cell {
