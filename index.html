@@ -27,29 +27,53 @@
         <div class="embed">
           <div class="embed-content">
             <div class="embed-content-inner">
+              <div class="embed-color">
+                <input type="text" name="color" placeholder="Embed Color" readonly />
+              </div>
               <div class="embed-author">
-                <div class="embed-author-icon"></div>
-                <div class="embed-author-name"></div>
-                <div class="embed-author-url"></div>
+                <div class="embed-author-icon">
+                  <input type="url" name="author:icon_url" placeholder="Author Icon URL" />
+                </div>
+                <div class="embed-author-name">
+                  <input type="text" name="author:name" placeholder="Author Name" maxlength="256" />
+                </div>
+                <div class="embed-author-url">
+                  <input type="url" name="author:url" placeholder="Author URL" />
+                </div>
               </div>
               <div class="embed-title">
-                <div class="embed-title-text"></div>
-                <div class="embed-title-url"></div>
+                <div class="embed-title-text">
+                  <input type="text" name="title" placeholder="Title" maxlength="256" />
+                </div>
+                <div class="embed-title-url">
+                  <input type="url" name="url" placeholder="URL" />
+                </div>
               </div>
               <div class="embed-thumbnail">
-                <div class="embed-thumbnail-url"></div>
+                <div class="embed-thumbnail-url">
+                  <input type="url" name="thumbnail:url" placeholder="Thumbnail URL" />
+                </div>
               </div>
+              <!-- TODO: Fields -->
               <div class="embed-fields"></div>
               <div class="embed-image">
-                <div class="embed-image-url"></div>
+                <div class="embed-image-url">
+                  <input type="url" name="image:url" placeholder="Image URL" />
+                </div>
               </div>
             </div>
           </div>
           <div class="embed-footer">
-            <div class="embed-footer-icon"></div>
-            <div class="embed-footer-text"></div>
-            <span class="embed-footer-seperator"></span>
-            <div class="embed-timestamp"></div>
+            <div class="embed-footer-icon">
+              <input type="url" name="footer:icon_url" placeholder="Footer Icon URL" />
+            </div>
+            <div class="embed-footer-text">
+              <input type="text" name="footer:text" placeholder="Footer Text" maxlength="256" />
+            </div>
+            <!-- <span class="embed-footer-seperator">•</span> -->
+            <div class="embed-timestamp">
+              <label><input type="checkbox" />Add Timestamp</label>
+            </div>
           </div>
         </div>
       </div>
