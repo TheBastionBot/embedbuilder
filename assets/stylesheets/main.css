@@ -126,3 +126,13 @@ main div.cell {
   color: #AAA;
   resize: vertical;
 }
+
+/**
+ * Footer
+ */
+footer {
+  padding: 20px 30px 40px 30px;
+}
+footer .copyright {
+  color: rgba(255, 255, 255, 0.5);
+}
