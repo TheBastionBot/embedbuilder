@@ -27,6 +27,12 @@ button {
   font-family: 'Roboto', sans-serif;
 }
 
+button:disabled {
+  cursor: pointer;
+  font-family: 'Roboto', sans-serif;
+  cursor: not-allowed;
+}
+
 code {
   font-family: 'Roboto Mono', monospace;
 }
@@ -87,6 +93,25 @@ main div.cell {
 #builder-container .embed-group {
   margin-top: 10px;
 }
+#builder-container .embed-group .embed-group-controls {
+  display: flex;
+  margin-top: 15px;
+}
+#builder-container .embed-group .embed-group-controls button {
+  width: 50%;
+  padding: 15px 0;
+  border: 1px solid #111111;
+  border-radius: 3px;
+  background-color: #18191C;
+  color: #EEEEEE;
+}
+#builder-container .embed-group .embed-group-controls button:hover {
+  filter: brightness(110%);
+}
+#builder-container .embed-group .embed-group-controls button:disabled {
+  filter: brightness(70%);
+  color: #555;
+}
 #builder-container .embed-author,
 #builder-container .embed-footer {
   display: flex;
@@ -102,7 +127,7 @@ main div.cell {
     width: 33.33333%;
   }
 }
-#builder-container .embed-timestamp label {
+#builder-container label {
   display: flex;
   height: 41px;
   padding: 0 10px;
@@ -112,7 +137,7 @@ main div.cell {
   color: #F5F5F5;
   line-height: 41px;
 }
-#builder-container .embed-timestamp label input[type='checkbox'] {
+#builder-container label input[type='checkbox'] {
   -webkit-appearance: none;
   -moz-appearance: none;
   -o-appearance: none;
@@ -127,10 +152,10 @@ main div.cell {
   background-color: #18191C;
   color: #F5F5F5;
 }
-#builder-container .embed-timestamp label input[type='checkbox']:checked {
+#builder-container label input[type='checkbox']:checked {
   background-color: #F5F5F5;
 }
-#builder-container .embed-timestamp label input[type='checkbox']:checked:after {
+#builder-container label input[type='checkbox']:checked:after {
   content: '\2714';
   position: absolute;
   top: 0;
@@ -156,7 +181,7 @@ main div.cell {
 #builder-container input[type='url'],
 #builder-container input[type='number'],
 #builder-container textarea,
-#builder-container .embed-timestamp label {
+#builder-container label {
   margin-top: 5px;
 }
 #builder-container input:invalid {
