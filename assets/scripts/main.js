@@ -45,28 +45,28 @@ function generateJSON() {
     embedObject.description = description;
   }
   // Fields
-  let fields = document.getElementById('fields').children;
-  if (fields.length) {
-    if (!embedObject.hasOwnProperty('fields')) {
-      embedObject.fields = [];
-    }
-
-    for (let i = 0; i < fields.length; i++) {
-      let field_name = form.elements[`field-${i}:name`].value;
-      let field_value = form.elements[`field-${i}:value`].value;
-      let field_inline = form.elements[`field-${i}:inline`].checked;
-
-      if (field_name && field_value) {
-        embedObject.fields.push({
-          name: field_name,
-          value: field_value,
-          inline: field_inline
-        });
-      }
-    }
-  }
+  // let fields = document.getElementById('fields').children;
+  // if (fields.length) {
+  //   if (!embedObject.hasOwnProperty('fields')) {
+  //     embedObject.fields = [];
+  //   }
+  //
+  //   for (let i = 0; i < fields.length; i++) {
+  //     let field_name = form.elements[`field-${i}:name`].value;
+  //     let field_value = form.elements[`field-${i}:value`].value;
+  //     let field_inline = form.elements[`field-${i}:inline`].checked;
+  //
+  //     if (field_name && field_value) {
+  //       embedObject.fields.push({
+  //         name: field_name,
+  //         value: field_value,
+  //         inline: field_inline
+  //       });
+  //     }
+  //   }
+  // }
   // Thumbnail
-  let thumbnail = form.elements['thumbnail'].value;
+  let thumbnail = form.elements['thumbnail:url'].value;
   if (thumbnail) {
     if (!embedObject.hasOwnProperty('thumbnail')) {
       embedObject.thumbnail = {}
@@ -74,7 +74,7 @@ function generateJSON() {
     embedObject.thumbnail.url = thumbnail;
   }
   // Image
-  let image = form.elements['image'].value;
+  let image = form.elements['image:url'].value;
   if (image) {
     if (!embedObject.hasOwnProperty('image')) {
       embedObject.image = {}
@@ -82,13 +82,13 @@ function generateJSON() {
     embedObject.image.url = image;
   }
   // Video
-  let video = form.elements['video'].value;
-  if (video) {
-    if (!embedObject.hasOwnProperty('video')) {
-      embedObject.video = {}
-    }
-    embedObject.video.url = video;
-  }
+  // let video = form.elements['video'].value;
+  // if (video) {
+  //   if (!embedObject.hasOwnProperty('video')) {
+  //     embedObject.video = {}
+  //   }
+  //   embedObject.video.url = video;
+  // }
   // Footer
   let footer_text = form.elements['footer:text'].value;
   if (footer_text) {
