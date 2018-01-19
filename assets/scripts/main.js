@@ -133,14 +133,14 @@ $('#color').ColorPicker({
 /**
  * Toggle Input Groups
  */
-function toggleGroup(group) {
-  if (group.checked) {
-    document.getElementById(`group:${group.name}`).removeAttribute('hidden');
-  }
-  else {
-    document.getElementById(`group:${group.name}`).setAttribute('hidden', true);
-  }
-}
+// function toggleGroup(group) {
+//   if (group.checked) {
+//     document.getElementById(`group:${group.name}`).removeAttribute('hidden');
+//   }
+//   else {
+//     document.getElementById(`group:${group.name}`).setAttribute('hidden', true);
+//   }
+// }
 
 /**
  * Add Field
