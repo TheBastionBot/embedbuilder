@@ -102,7 +102,12 @@ function generateJSON() {
       embedObject.footer.icon_url = footer_icon_url;
     }
   }
-  // TODO: Timestamp
+
+  // Timestamp
+  let timestamp = form.elements['timestamp'].checked;
+  if (timestamp) {
+    embedObject.timestamp = new Date();
+  }
 
   document.getElementById('json-output').innerHTML = JSON.stringify(embedObject, null, '  ');
 }
