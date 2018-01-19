@@ -136,7 +136,8 @@ main div.cell {
 }
 #builder-container input[type='text'],
 #builder-container input[type='url'],
-#builder-container input[type='number'] {
+#builder-container input[type='number'],
+#builder-container textarea {
   width: 100%;
   padding: 10px;
   border: 1px solid #111111;
@@ -144,6 +145,8 @@ main div.cell {
   background-color: #18191C;
   color: #F5F5F5;
   font-family: 'Roboto', sans-serif;
+  font-size: 15px;
+  resize: vertical;
 }
 #builder-container input:invalid {
   border: 1px solid red;
