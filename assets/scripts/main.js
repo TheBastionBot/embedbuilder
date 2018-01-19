@@ -113,7 +113,7 @@ function generateJSON() {
  */
 $('#color').ColorPicker({
   onChange: function (hsb, hex, rgb) {
-    document.getElementById('output').style['border-left'] = `5px solid #${hex}`;
+    document.getElementById('builder-container').style['border-left'] = `5px solid #${hex}`;
     let color = document.getElementById('color');
     let rgbInt = 256 * 256 * Math.round(rgb.r) + 256 * Math.round(rgb.g) + Math.round(rgb.b);
     $(color).val(rgbInt);
