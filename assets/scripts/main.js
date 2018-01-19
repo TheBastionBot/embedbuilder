@@ -66,7 +66,7 @@ function generateJSON() {
     }
   }
   // Thumbnail
-  let thumbnail = form.elements['thumbnail'].value;
+  let thumbnail = form.elements['thumbnail:url'].value;
   if (thumbnail) {
     if (!embedObject.hasOwnProperty('thumbnail')) {
       embedObject.thumbnail = {}
@@ -74,7 +74,7 @@ function generateJSON() {
     embedObject.thumbnail.url = thumbnail;
   }
   // Image
-  let image = form.elements['image'].value;
+  let image = form.elements['image:url'].value;
   if (image) {
     if (!embedObject.hasOwnProperty('image')) {
       embedObject.image = {}
@@ -82,13 +82,13 @@ function generateJSON() {
     embedObject.image.url = image;
   }
   // Video
-  let video = form.elements['video'].value;
-  if (video) {
-    if (!embedObject.hasOwnProperty('video')) {
-      embedObject.video = {}
-    }
-    embedObject.video.url = video;
-  }
+  // let video = form.elements['video'].value;
+  // if (video) {
+  //   if (!embedObject.hasOwnProperty('video')) {
+  //     embedObject.video = {}
+  //   }
+  //   embedObject.video.url = video;
+  // }
   // Footer
   let footer_text = form.elements['footer:text'].value;
   if (footer_text) {
@@ -102,7 +102,12 @@ function generateJSON() {
       embedObject.footer.icon_url = footer_icon_url;
     }
   }
-  // TODO: Timestamp
+
+  // Timestamp
+  let timestamp = form.elements['timestamp'].checked;
+  if (timestamp) {
+    embedObject.timestamp = new Date();
+  }
 
   document.getElementById('json-output').innerHTML = JSON.stringify(embedObject, null, '  ');
 }
@@ -113,7 +118,7 @@ function generateJSON() {
  */
 $('#color').ColorPicker({
   onChange: function (hsb, hex, rgb) {
-    document.getElementById('output').style['border-left'] = `5px solid #${hex}`;
+    document.getElementById('builder-container').style['border-left'] = `5px solid #${hex}`;
     let color = document.getElementById('color');
     let rgbInt = 256 * 256 * Math.round(rgb.r) + 256 * Math.round(rgb.g) + Math.round(rgb.b);
     $(color).val(rgbInt);
@@ -133,14 +138,14 @@ $('#color').ColorPicker({
 /**
  * Toggle Input Groups
  */
-function toggleGroup(group) {
-  if (group.checked) {
-    document.getElementById(`group:${group.name}`).removeAttribute('hidden');
-  }
-  else {
-    document.getElementById(`group:${group.name}`).setAttribute('hidden', true);
-  }
-}
+// function toggleGroup(group) {
+//   if (group.checked) {
+//     document.getElementById(`group:${group.name}`).removeAttribute('hidden');
+//   }
+//   else {
+//     document.getElementById(`group:${group.name}`).setAttribute('hidden', true);
+//   }
+// }
 
 /**
  * Add Field
@@ -158,13 +163,11 @@ function addField(button) {
   }
 
   fields.insertAdjacentHTML('beforeend',
-    `<div id="field-${index}" class="field-container">
+    `<div id="field-${index}" class="embed-group">
        <div class="field">
          <input type="text" name="field-${index}:name" maxlength="256" placeholder="Field ${index + 1} Name" />
          <textarea name="field-${index}:value" maxlength="1024" rows="2" placeholder="Field ${index +1} Description"></textarea>
-       </div>
-       <div class="controls">
-         <label style="display:inline-block;">
+         <label>
            <input type="checkbox" name="field-${index}:inline" />
            <span>Inline</span>
          </label>

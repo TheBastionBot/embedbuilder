@@ -1,12 +1,23 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Discord Message Embed Builder</title>
+  <title>Message Embed Builder (GUI)</title>
   <meta charset="utf-8">
   <meta name="robots" content="noodp">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="description" content="Graphically create JSON for Discord message embeds, and use it with various bots/applications based on Discord API.">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Message Embed Builder (GUI)">
+  <meta property="og:description" content="Graphically create JSON for Discord message embeds, and use it with various bots/applications based on Discord API.">
+  <meta property="og:url" content="https://bastionbot.org/embedbuilder">
+  <meta property="og:image" content="https://bastionbot.org/assets/image/BastionText3.png">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Bastion">
+
+  <!-- Favicon -->
+  <link rel="shortcut icon" href="https://bastionbot.org/favicon.ico" type="image/x-icon">
 
   <!-- Stylesheets -->
   <link rel="stylesheet" href="assets/stylesheets/main.css" />
@@ -14,111 +25,97 @@
   <link href="https://fonts.googleapis.com/css?family=Roboto|Roboto+Mono" rel="stylesheet">
 </head>
 <body>
-  <div id="main">
-    <main>
-      <h1>Embed Builder</h1>
-      <p>Graphically create JSON for Discord message embeds, and use it with various bots/applications based on Discord API.</p>
+  <header>
+    <div id="back-to-home">
+      <a href="https://bastionbot.org"><img src="https://bastionbot.org/assets/image/arrow_left.png" /></a>
+    </div>
+    <div title="Graphically create JSON for Discord message embeds, and use it with various bots/applications based on Discord API.">Embed Builder</div>
+  </header>
 
-      <form id="embed-builder" method="post">
-        <!-- Color -->
-        <div class="input-group">
-          <div class="input-field">
-            <input id="color" type="text" name="color" placeholder="Color" readonly />
+  <main>
+    <div class="cell">
+      <div id="builder-container">
+        <form id="embed-builder">
+          <div class="embed">
+            <div class="embed-content">
+              <div class="embed-content-inner">
+                <div class="embed-group embed-color">
+                  <input id="color" type="text" name="color" placeholder="Embed Color" readonly />
+                </div>
+                <div class="embed-group embed-author">
+                  <div class="embed-author-icon">
+                    <input type="url" name="author:icon_url" placeholder="Author Icon URL" />
+                  </div>
+                  <div class="embed-author-name">
+                    <input type="text" name="author:name" placeholder="Author Name" maxlength="256" />
+                  </div>
+                  <div class="embed-author-url">
+                    <input type="url" name="author:url" placeholder="Author URL" />
+                  </div>
+                </div>
+                <div class="embed-group embed-title">
+                  <div class="embed-title-text">
+                    <input type="text" name="title" placeholder="Title" maxlength="256" />
+                  </div>
+                  <div class="embed-title-url">
+                    <input type="url" name="url" placeholder="URL" />
+                  </div>
+                </div>
+                <div class="embed-group embed-description">
+                  <textarea name="description" placeholder="Description" maxlength="2000" rows="5"></textarea>
+                </div>
+                <div class="embed-group embed-thumbnail">
+                  <div class="embed-thumbnail-url">
+                    <input type="url" name="thumbnail:url" placeholder="Thumbnail URL" />
+                  </div>
+                </div>
+                <!-- TODO: Fields -->
+                <div class="embed-group embed-fields">
+                  <div id="fields"></div>
+                  <div class="embed-group-controls">
+                    <button id="btn-addField" type="button" onClick="addField(this)">➕ Add Field</button>
+                    <button id="btn-removeField" type="button" onClick="removeField(this)" disabled>➖ Remove Field</button>
+                  </div>
+                </div>
+                <div class="embed-group embed-image">
+                  <div class="embed-image-url">
+                    <input type="url" name="image:url" placeholder="Image URL" />
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="embed-group embed-footer">
+              <div class="embed-footer-icon">
+                <input type="url" name="footer:icon_url" placeholder="Footer Icon URL" />
+              </div>
+              <div class="embed-footer-text">
+                <input type="text" name="footer:text" placeholder="Footer Text" maxlength="256" />
+              </div>
+              <!-- <span class="embed-footer-seperator">•</span> -->
+              <div class="embed-timestamp">
+                <label><input name="timestamp" type="checkbox" />Add Timestamp</label>
+              </div>
+            </div>
           </div>
-        </div>
-        <!-- Author -->
-        <div class="input-group">
-          <div class="input-group-toggle">
-            <label>
-              <input type="checkbox" name="author" value="true" onClick="toggleGroup(this)" />
-              <span>Author</span>
-            </label>
-          </div>
-          <div id="group:author" class="input-field" hidden>
-            <input type="text" name="author:name" maxlength="256" placeholder="Author Name" />
-            <input type="url" name="author:url" placeholder="Author URL" />
-            <input type="url" name="author:icon_url" placeholder="Author Icon URL" />
-          </div>
-        </div>
-        <!-- Title -->
-        <div class="input-group">
-          <div class="input-field">
-            <input type="text" name="title" maxlength="256" placeholder="Title" />
-          </div>
-        </div>
-        <!-- URL -->
-        <div class="input-group">
-          <div class="input-field">
-            <input type="url" name="url" placeholder="URL" />
-          </div>
-        </div>
-        <!-- Description -->
-        <div class="input-group">
-          <div class="input-field">
-            <textarea name="description" maxlength="2048" rows="2" placeholder="Description"></textarea>
-          </div>
-        </div>
-        <!-- Fields -->
-        <div class="input-group">
-          <div id="fields" class="input-field">
-          </div>
-          <div class="input-group-toggle">
-            <button id="btn-addField" type="button" onClick="addField(this)">Add Field</button>
-            <button id="btn-removeField" type="button" onClick="removeField(this)" disabled>Remove Field</button>
-          </div>
-        </div>
-        <!-- Thumbnail -->
-        <div class="input-group">
-          <div class="input-field">
-            <input type="url" name="thumbnail" placeholder="Thumbnail URL" />
-          </div>
-        </div>
-        <!-- Image -->
-        <div class="input-group">
-          <div class="input-field">
-            <input type="url" name="image" placeholder="Image URL" />
-          </div>
-        </div>
-        <!-- Video -->
-        <div class="input-group">
-          <div class="input-field">
-            <input type="url" name="video" placeholder="Video URL" />
-          </div>
-        </div>
-        <!-- Footer -->
-        <div class="input-group">
-          <div class="input-group-toggle">
-            <label>
-              <input type="checkbox" name="footer" value="true" onClick="toggleGroup(this)" />
-              <span>Footer</span>
-            </label>
-          </div>
-          <div id="group:footer" class="input-field" hidden>
-            <input type="text" name="footer:text" maxlength="2048" placeholder="Footer Text" />
-            <input type="url" name="footer:icon_url" placeholder="Footer Icon URL" />
-          </div>
-        </div>
-
-        <!-- JSON Output -->
-        <div id="output" class="input-group">
-          <div id="controls">
-            <button class="primary" type="button" onClick="generateJSON()">Generate JSON</button>
-            <button type="button" onClick="copyJSON(this)">Copy JSON</button>
-          </div>
-          <div class="input-field">
-            <label for="json-output">JSON Output</label>
-            <textarea id="json-output" rows="10" readonly>{}</textarea>
-          </div>
-        </div>
-      </form>
-    </main>
-
-    <footer>
-      <div class="copyright">
-        Copyright &copy; 2018 - <a href="https://bastionbot.org" target="_blank">The Bastion Bot Project</a>
+        </form>
       </div>
-    </footer>
-  </div>
+    </div>
+    <div class="cell">
+      <div id="output-container">
+        <div class="controller">
+          <button onclick="generateJSON()">⚙&ensp;Generate JSON</button>
+          <button onclick="copyJSON()">🔗&ensp;Copy JSON</button>
+        </div>
+        <div class="output">
+          <textarea id="json-output" readonly>{}</textarea>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <div class="copyright">Copyright &copy; 2018 - The Bastion Bot Project</div>
+  </footer>
 
   <!-- Scripts -->
   <script src="https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
