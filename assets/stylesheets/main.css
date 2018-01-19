@@ -84,6 +84,9 @@ main div.cell {
   box-shadow: 0 2px 5px rgba(0, 0, 0, .3);
   background-color: #23272A;
 }
+#builder-container .embed-group {
+  margin-top: 10px;
+}
 #builder-container .embed-author,
 #builder-container .embed-footer {
   display: flex;
@@ -148,6 +151,13 @@ main div.cell {
   font-family: 'Roboto', sans-serif;
   font-size: 15px;
   resize: vertical;
+}
+#builder-container input[type='text'],
+#builder-container input[type='url'],
+#builder-container input[type='number'],
+#builder-container textarea,
+#builder-container .embed-timestamp label {
+  margin-top: 5px;
 }
 #builder-container input:invalid {
   border: 1px solid red;
