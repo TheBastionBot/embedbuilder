@@ -45,26 +45,26 @@ function generateJSON() {
     embedObject.description = description;
   }
   // Fields
-  // let fields = document.getElementById('fields').children;
-  // if (fields.length) {
-  //   if (!embedObject.hasOwnProperty('fields')) {
-  //     embedObject.fields = [];
-  //   }
-  //
-  //   for (let i = 0; i < fields.length; i++) {
-  //     let field_name = form.elements[`field-${i}:name`].value;
-  //     let field_value = form.elements[`field-${i}:value`].value;
-  //     let field_inline = form.elements[`field-${i}:inline`].checked;
-  //
-  //     if (field_name && field_value) {
-  //       embedObject.fields.push({
-  //         name: field_name,
-  //         value: field_value,
-  //         inline: field_inline
-  //       });
-  //     }
-  //   }
-  // }
+  let fields = document.getElementById('fields').children;
+  if (fields.length) {
+    if (!embedObject.hasOwnProperty('fields')) {
+      embedObject.fields = [];
+    }
+
+    for (let i = 0; i < fields.length; i++) {
+      let field_name = form.elements[`field-${i}:name`].value;
+      let field_value = form.elements[`field-${i}:value`].value;
+      let field_inline = form.elements[`field-${i}:inline`].checked;
+
+      if (field_name && field_value) {
+        embedObject.fields.push({
+          name: field_name,
+          value: field_value,
+          inline: field_inline
+        });
+      }
+    }
+  }
   // Thumbnail
   let thumbnail = form.elements['thumbnail:url'].value;
   if (thumbnail) {
@@ -158,13 +158,11 @@ function addField(button) {
   }
 
   fields.insertAdjacentHTML('beforeend',
-    `<div id="field-${index}" class="field-container">
+    `<div id="field-${index}" class="embed-group">
        <div class="field">
          <input type="text" name="field-${index}:name" maxlength="256" placeholder="Field ${index + 1} Name" />
          <textarea name="field-${index}:value" maxlength="1024" rows="2" placeholder="Field ${index +1} Description"></textarea>
-       </div>
-       <div class="controls">
-         <label style="display:inline-block;">
+         <label>
            <input type="checkbox" name="field-${index}:inline" />
            <span>Inline</span>
          </label>
