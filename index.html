@@ -59,7 +59,13 @@
                   </div>
                 </div>
                 <!-- TODO: Fields -->
-                <div class="embed-group embed-fields"></div>
+                <div class="embed-group embed-fields">
+                  <div id="fields"></div>
+                  <div class="embed-group-controls">
+                    <button id="btn-addField" type="button" onClick="addField(this)">➕ Add Field</button>
+                    <button id="btn-removeField" type="button" onClick="removeField(this)" disabled>➖ Remove Field</button>
+                  </div>
+                </div>
                 <div class="embed-group embed-image">
                   <div class="embed-image-url">
                     <input type="url" name="image:url" placeholder="Image URL" />
