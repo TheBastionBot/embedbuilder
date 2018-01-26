@@ -7,7 +7,8 @@ function generateJSON() {
   let embedObject = {};
 
   let regex = {
-    url: /^(http[s]?:\/\/)(www\.)?[-a-zA-Z0-9@:%._+~#=]{1,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_+.~#?&/=]*)$/i
+    url: /^(http[s]?:\/\/)(www\.)?[-a-zA-Z0-9@:%._+~#=]{1,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_+.~#?&/=]*)$/i,
+    imageURL: /^(https?:\/\/)((([-a-z0-9]{1,})?(-?)+[-a-z0-9]{1,})(\.))+([a-z]{1,63})\/((([a-z0-9._\-~#%])+\/)+)?([a-z0-9._\-~#%]+)\.(jpg|jpeg|gif|png|bmp)$/i
   };
 
   // Color
@@ -29,7 +30,7 @@ function generateJSON() {
     }
 
     let author_icon_url = form.elements['author:icon_url'].value;
-    if (author_icon_url) {
+    if (author_icon_url && regex.imageURL.test(author_icon_url)) {
       embedObject.author.icon_url = author_icon_url;
     }
   }
@@ -71,7 +72,7 @@ function generateJSON() {
   }
   // Thumbnail
   let thumbnail = form.elements['thumbnail:url'].value;
-  if (thumbnail) {
+  if (thumbnail && regex.imageURL.test(thumbnail)) {
     if (!embedObject.hasOwnProperty('thumbnail')) {
       embedObject.thumbnail = {}
     }
@@ -79,7 +80,7 @@ function generateJSON() {
   }
   // Image
   let image = form.elements['image:url'].value;
-  if (image) {
+  if (image && regex.imageURL.test(image)) {
     if (!embedObject.hasOwnProperty('image')) {
       embedObject.image = {}
     }
@@ -102,7 +103,7 @@ function generateJSON() {
     embedObject.footer.text = footer_text;
 
     let footer_icon_url = form.elements['footer:icon_url'].value;
-    if (footer_icon_url) {
+    if (footer_icon_url && regex.imageURL.test(footer_icon_url)) {
       embedObject.footer.icon_url = footer_icon_url;
     }
   }
