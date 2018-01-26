@@ -6,6 +6,10 @@ function generateJSON() {
 
   let embedObject = {};
 
+  let regex = {
+    url: /^(http[s]?:\/\/)(www\.)?[-a-zA-Z0-9@:%._+~#=]{1,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_+.~#?&/=]*)$/i
+  };
+
   // Color
   let color = form.elements['color'].value;
   if (color) {
@@ -20,7 +24,7 @@ function generateJSON() {
     embedObject.author.name = author_name;
 
     let author_url = form.elements['author:url'].value;
-    if (author_url) {
+    if (author_url && regex.url.test(author_url)) {
       embedObject.author.url = author_url;
     }
 
@@ -36,7 +40,7 @@ function generateJSON() {
   }
   // URL
   let url = form.elements['url'].value;
-  if (url) {
+  if (url && regex.url.test(url)) {
     embedObject.url = url;
   }
   // Description
