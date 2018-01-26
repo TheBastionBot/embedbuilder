@@ -168,12 +168,12 @@ function addField(button) {
   }
 
   fields.insertAdjacentHTML('beforeend',
-    `<div id="field-${index}" class="embed-group">
+    `<div id="field-${index}" class="embed-group" style="display: inline-block; margin-top: 0; width: 50%">
        <div class="field">
          <input type="text" name="field-${index}:name" maxlength="256" placeholder="Field ${index + 1} Name" />
          <textarea name="field-${index}:value" maxlength="1024" rows="2" placeholder="Field ${index +1} Description"></textarea>
          <label>
-           <input type="checkbox" name="field-${index}:inline" />
+           <input type="checkbox" name="field-${index}:inline" onChange="toggleInline(this)" checked />
            <span>Inline</span>
          </label>
        </div>
@@ -202,4 +202,15 @@ function removeField(button) {
 
   let addBtn = document.getElementById('btn-addField');
   addBtn.removeAttribute('disabled');
+}
+
+
+function toggleInline(element) {
+  let field = document.getElementById(element.name.replace(':inline', ''));
+  if (!element.checked) {
+    field.removeAttribute('style');
+  }
+  else {
+    field.setAttribute('style', 'display: inline-block; margin-top: 0; width: 50%;');
+  }
 }
