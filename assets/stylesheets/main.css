@@ -222,14 +222,13 @@ main div.cell {
   box-shadow: 0 2px 5px rgba(0, 0, 0, .3);
 }
 #json-output {
-  display: block;
   min-height: calc(100vh - 185px) !important;
   width: 100%;
   background: none;
   border: none;
   font-family: 'Roboto Mono', monospace;
   color: #AAA;
-  resize: vertical;
+  overflow-x: auto;
 }
 
 /**
