@@ -115,6 +115,14 @@ function generateJSON() {
   }
 
   document.getElementById('json-output').innerHTML = JSON.stringify(embedObject, null, '  ');
+
+  // Code highlighter
+  let jsonOutput = document.getElementById('json-output').innerHTML;
+  jsonOutput = jsonOutput.replace(/"([\w]*)":/g, '<span class="highlight key">"$1"</span>:');
+  jsonOutput = jsonOutput.replace(/(\d*),/g, '<span class="highlight number">$1</span>,');
+  jsonOutput = jsonOutput.replace(/: (true|false)/g, ': <span class="highlight boolean">$1</span>');
+  jsonOutput = jsonOutput.replace(/: "(.*?)"/g, ': <span class="highlight string">"$1"</span>');
+  document.getElementById('json-output').innerHTML = jsonOutput;
 }
 
 
