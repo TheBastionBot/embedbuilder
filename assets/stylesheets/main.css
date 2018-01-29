@@ -241,3 +241,19 @@ footer {
 footer .copyright {
   color: rgba(255, 255, 255, 0.5);
 }
+
+/**
+ * Code highlight
+ */
+span.highlight.key {
+  color: #cc6666;
+}
+span.highlight.string {
+  color: #99cc99;
+}
+span.highlight.number {
+  color: #cdb05b;
+}
+span.highlight.boolean {
+  color: #cdb05b;
+}
