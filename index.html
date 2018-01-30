@@ -44,13 +44,13 @@
                 </div>
                 <div class="embed-group embed-author">
                   <div class="embed-author-icon">
-                    <input type="url" name="author:icon_url" placeholder="Author Icon URL" />
+                    <input type="url" name="author:icon_url" placeholder="Author Icon URL" onKeyUp="validateImageURL(this)" />
                   </div>
                   <div class="embed-author-name">
                     <input type="text" name="author:name" placeholder="Author Name" maxlength="256" />
                   </div>
                   <div class="embed-author-url">
-                    <input type="url" name="author:url" placeholder="Author URL" />
+                    <input type="url" name="author:url" placeholder="Author URL" onKeyUp="validateURL(this)" />
                   </div>
                 </div>
                 <div class="embed-group embed-title">
@@ -58,7 +58,7 @@
                     <input type="text" name="title" placeholder="Title" maxlength="256" />
                   </div>
                   <div class="embed-title-url">
-                    <input type="url" name="url" placeholder="URL" />
+                    <input type="url" name="url" placeholder="URL" onKeyUp="validateURL(this)" />
                   </div>
                 </div>
                 <div class="embed-group embed-description">
@@ -66,7 +66,7 @@
                 </div>
                 <div class="embed-group embed-thumbnail">
                   <div class="embed-thumbnail-url">
-                    <input type="url" name="thumbnail:url" placeholder="Thumbnail URL" />
+                    <input type="url" name="thumbnail:url" placeholder="Thumbnail URL" onKeyUp="validateImageURL(this)" />
                   </div>
                 </div>
                 <!-- TODO: Fields -->
@@ -79,14 +79,14 @@
                 </div>
                 <div class="embed-group embed-image">
                   <div class="embed-image-url">
-                    <input type="url" name="image:url" placeholder="Image URL" />
+                    <input type="url" name="image:url" placeholder="Image URL" onKeyUp="validateImageURL(this)" />
                   </div>
                 </div>
               </div>
             </div>
             <div class="embed-group embed-footer">
               <div class="embed-footer-icon">
-                <input type="url" name="footer:icon_url" placeholder="Footer Icon URL" />
+                <input type="url" name="footer:icon_url" placeholder="Footer Icon URL" onKeyUp="validateImageURL(this)" />
               </div>
               <div class="embed-footer-text">
                 <input type="text" name="footer:text" placeholder="Footer Text" maxlength="256" />
