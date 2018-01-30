@@ -222,3 +222,24 @@ function toggleInline(element) {
     field.setAttribute('style', 'display: inline-block; margin-top: 0; width: 50%;');
   }
 }
+
+/**
+ * URL Validator
+ */
+function validateURL(element) {
+  if (element.value.length && !/^(http[s]?:\/\/)(www\.)?[-a-zA-Z0-9@:%._+~#=]{1,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_+.~#?&/=]*)$/i.test(element.value)) {
+    $(`input[name='${element.name}']`).addClass('invalid');
+  }
+  else {
+    $(`input[name='${element.name}']`).removeClass('invalid');
+  }
+}
+
+function validateImageURL(element) {
+  if (element.value.length && !/^(https?:\/\/)((([-a-z0-9]{1,})?(-?)+[-a-z0-9]{1,})(\.))+([a-z]{1,63})\/((([a-z0-9._\-~#%])+\/)+)?([a-z0-9._\-~#%]+)\.(jpg|jpeg|gif|png|bmp)$/i.test(element.value)) {
+    $(`input[name='${element.name}']`).addClass('invalid');
+  }
+  else {
+    $(`input[name='${element.name}']`).removeClass('invalid');
+  }
+}
