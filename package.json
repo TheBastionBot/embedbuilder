@@ -1,6 +1,7 @@
 {
   "name": "embedbuilder",
   "version": "0.1.0",
+  "homepage": "https://thebastionbot.github.io/embedbuilder",
   "private": true,
   "dependencies": {
     "react": "^16.2.0",
