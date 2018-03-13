@@ -1,6 +1,14 @@
 import React from 'react';
+import Color from './Color';
+import Author from './Author';
+import Title from './Title';
+import Description from './Description';
+import Thumbnail from './Thumbnail';
+import Fields from './Fields';
+import Image from './Image';
+import Footer from './Footer';
 
-class Builder extends React.Component {
+class Output extends React.Component {
   render() {
     return(
       <div className="cell">
@@ -9,8 +17,20 @@ class Builder extends React.Component {
             <div className="embed">
               <div className="embed-content">
                 <div className="embed-content-inner">
+
+                  <Color />
+                  <Author />
+                  <Title />
+                  <Description />
+                  <Thumbnail />
+                  <Fields />
+                  <Image />
+
                 </div>
               </div>
+
+              <Footer />
+
             </div>
           </form>
         </div>
@@ -19,4 +39,4 @@ class Builder extends React.Component {
   }
 }
 
-export default Builder;
+export default Output;
