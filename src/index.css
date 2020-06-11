@@ -21,3 +21,8 @@ html, body {
   overflow-x: hidden;
   width: 100vw;
 }
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
