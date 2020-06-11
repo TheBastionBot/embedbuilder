@@ -76,18 +76,12 @@ class Output extends React.Component {
     // Thumbnail
     let thumbnail = form.elements['thumbnail:url'].value;
     if (thumbnail && RegEx.imageURL.test(thumbnail)) {
-      if (!embedObject.hasOwnProperty('thumbnail')) {
-        embedObject.thumbnail = {}
-      }
-      embedObject.thumbnail.url = thumbnail;
+      embedObject.thumbnail = thumbnail;
     }
     // Image
     let image = form.elements['image:url'].value;
     if (image && RegEx.imageURL.test(image)) {
-      if (!embedObject.hasOwnProperty('image')) {
-        embedObject.image = {}
-      }
-      embedObject.image.url = image;
+      embedObject.image = image;
     }
     // Video
     // let video = form.elements['video'].value;
