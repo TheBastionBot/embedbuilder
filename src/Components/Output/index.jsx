@@ -83,6 +83,7 @@ class Output extends React.Component {
     if (image && RegEx.imageURL.test(image)) {
       embedObject.image = image;
     }
+
     // Video
     // let video = form.elements['video'].value;
     // if (video) {
@@ -91,19 +92,6 @@ class Output extends React.Component {
     //   }
     //   embedObject.video.url = video;
     // }
-    // Footer
-    let footer_text = form.elements['footer:text'].value;
-    if (footer_text) {
-      if (!embedObject.hasOwnProperty('footer')) {
-        embedObject.footer = {}
-      }
-      embedObject.footer.text = footer_text;
-
-      let footer_icon_url = form.elements['footer:icon_url'].value;
-      if (footer_icon_url && RegEx.imageURL.test(footer_icon_url)) {
-        embedObject.footer.icon_url = footer_icon_url;
-      }
-    }
 
     // Timestamp
     let timestamp = form.elements['timestamp'].checked;

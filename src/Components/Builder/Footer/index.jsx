@@ -34,25 +34,6 @@ class Footer extends React.Component {
   render() {
     return(
       <div className = "embed-group embed-footer">
-        <div className = "embed-footer-icon">
-          <input
-            type = "url"
-            name = "footer:icon_url"
-            placeholder = "Footer Icon URL"
-            value = {this.state.iconURL}
-            onChange = {event => this.updateIconURL(event)}
-          />
-        </div>
-        <div className="embed-footer-text">
-          <input
-            type = "text"
-            name = "footer:text"
-            placeholder = "Footer Text"
-            maxLength = "256"
-            value = {this.state.text}
-            onChange = {event => this.updateText(event)}
-          />
-        </div>
         <div className="embed-timestamp">
           <label>
             <input
